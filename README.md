@@ -24,7 +24,7 @@ pip install pandas==2.0.3 transformers==4.16.2 imbalanced-learn==0.8.0
 Our experiments use the [JIT-Defects4J](https://github.com/jacknichao/JIT-Fine) dataset for commit-level data, with pre-processing of line-level data from [JIT-Smart](https://github.com/JIT-A/JIT-Smart). The commit-level dataset in [`data/jitfine`](data/jitfine) folder, and the line-level dataset in [`data/jitsmart`](data/jitsmart) folder.
 
 ## Training and Evaluation
-We have uploaded the best model checkpoint to [Google Drive](https://drive.google.com/drive/folders/1QfrejUYy5fS7ml82VcNRLsLs-pIgyb_I?usp=drive_link). You can directly use it to generation the prediction results as in [`output`](output) folder.
+We have uploaded the best model checkpoint to [Google Drive](https://drive.google.com/file/d/1niFHym3qkaXpv2Jq2ajr2q5nR3D9nrlx/view?usp=sharing). You can directly use it to generation the prediction results as in [`output`](output) folder.
 
 ### Defect code representation learning
 Run the following script in [`code`](code) folder to run line-level defect code representation learning.
