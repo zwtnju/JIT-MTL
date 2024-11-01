@@ -1,7 +1,7 @@
 model=codebert
 python run_mix.py \
 --model_type roberta \
---output_dir= ../checkpoint/line/${model} \
+--output_dir=../checkpoint/line/${model} \
 --model_name_or_path=../model/${model} \
 --do_train \
 --do_test \

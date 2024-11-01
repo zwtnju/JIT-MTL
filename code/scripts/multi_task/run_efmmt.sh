@@ -1,15 +1,17 @@
 model=codebert
-python run_mix.py \
+python run_mtl.py \
 --model_type roberta \
---output_dir= ../checkpoint/line/${model} \
+--output_dir=./saved_models/efmmt/${model} \
 --model_name_or_path=../model/${model} \
 --do_train \
 --do_test \
---run_line \
+--run_expert_feature \
+--mix_checkpoint \
+--defect_code_representation_checkpoint ../checkpoint/mix/${model}/checkpoint-best-f1/model.bin \
 --train_data_file ../data/jitfine/changes_train.pkl ../data/jitfine/features_train.pkl \
 --eval_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
 --test_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
---epoch 3 \
+--epoch 5 \
 --max_seq_length 512  \
 --max_msg_length 64 \
 --train_batch_size 128 \
@@ -27,4 +29,4 @@ python run_mix.py \
 --max_codeline_token_length 64 \
 --buggy_lines_file ../data/jitsmart/train_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl \
 --dp_loss_weight 1 \
---dl_loss_weight 1 2>&1| tee run_line_${model}.log
+--dl_loss_weight 1 2>&1| tee run_efmmt_${model}.log

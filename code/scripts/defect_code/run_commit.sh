@@ -1,11 +1,11 @@
 model=codebert
 python run_mix.py \
 --model_type roberta \
---output_dir= ../checkpoint/line/${model} \
+--output_dir=../checkpoint/commit/${model} \
 --model_name_or_path=../model/${model} \
 --do_train \
 --do_test \
---run_line \
+--run_commit \
 --train_data_file ../data/jitfine/changes_train.pkl ../data/jitfine/features_train.pkl \
 --eval_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
 --test_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
@@ -27,4 +27,4 @@ python run_mix.py \
 --max_codeline_token_length 64 \
 --buggy_lines_file ../data/jitsmart/train_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl \
 --dp_loss_weight 1 \
---dl_loss_weight 1 2>&1| tee run_line_${model}.log
+--dl_loss_weight 1 2>&1| tee run_commit_${model}.log
