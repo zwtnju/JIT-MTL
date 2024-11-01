@@ -1,0 +1,30 @@
+model=codebert
+python run_mtl.py \
+--model_type roberta \
+--output_dir=./saved_models/efmt/${model} \
+--model_name_or_path=../model/${model} \
+--do_train \
+--do_test \
+--run_expert_feature \
+--train_data_file ../data/jitfine/changes_train.pkl ../data/jitfine/features_train.pkl \
+--eval_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
+--test_data_file ../data/jitfine/changes_test.pkl ../data/jitfine/features_test.pkl \
+--epoch 5 \
+--max_seq_length 512  \
+--max_msg_length 64 \
+--train_batch_size 128 \
+--eval_batch_size 128 \
+--learning_rate 2e-5 \
+--max_grad_norm 1.0 \
+--evaluate_during_training \
+--only_adds \
+--buggy_line_filepath ../data/jitsmart/test_buggy_commit_lines_df.pkl \
+--feature_size 14 \
+--seed 42 \
+--patience 10 \
+--max_input_token_length 512 \
+--max_codeline_length 256 \
+--max_codeline_token_length 64 \
+--buggy_lines_file ../data/jitsmart/train_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl ../data/jitsmart/test_buggy_commit_lines_df.pkl \
+--dp_loss_weight 1 \
+--dl_loss_weight 1 2>&1| tee run_efmt_${model}.log
