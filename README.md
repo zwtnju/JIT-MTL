@@ -1,10 +1,8 @@
-# JIT-CMT: A Multi-Task Learning Framework by Fusing Defect Code Representation and Expert Features for Just-in-Time Defect Prediction and Localization
+# JIT-MTL: Just-in-Time Defect Localization and Prediction with Multi-Task Learning
 
 Our Approach uses a multi-task learning framework by fusing defect code representation and expert features for JIT-DP and JIT-DL.
 
-![Overview](figure/overview.png)
-
-JIT-CMT is comprised of the following two phases:
+JIT-MTL is comprised of the following two phases:
 
 * **Defect code representation learning** employ the CPTM to learn defect code representations of different granularity (i.e., commit-level and line-level).
 * **Multi-task learning** train the same CPTM with extra expert features to identify defective commits and lines at the same time. Line-level predictions directly serve as results for JIT-DL, whereas commit-level predictions for the same commit are merged to determine the results for JIT-DP.
